@@ -14,7 +14,7 @@ class Node {
 */
 class Solution {
 public:
-    Node* reverse(Node* head) {
+  Node* reverse(Node* head) {
         if (!head) return nullptr;
 
         Node* curr = head;
