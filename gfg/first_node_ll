@@ -1,0 +1,49 @@
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int val) {
+        data = val;
+        next = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    // Detect loop using Floyd's Cycle Detection
+    Node* detectLoop(Node* head) {
+        if (head == NULL) return NULL;
+        Node* slow = head;
+        Node* fast = head;
+
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if (slow == fast) {
+                return slow; // meeting point
+            }
+        }
+        return NULL; // no loop
+    }
+
+    // Return the data of the first node of loop, else -1
+    int cycleStart(Node* head) {
+        if (head == NULL) return -1;
+
+        Node* intersection = detectLoop(head);
+        if (intersection == NULL) return -1; // no loop
+
+        Node* slow = head;
+        while (slow != intersection) {
+            slow = slow->next;
+            intersection = intersection->next;
+        }
+
+        return slow->data; // first node of loop
+    }
+};
+
