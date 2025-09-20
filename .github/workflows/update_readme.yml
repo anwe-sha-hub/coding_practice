@@ -3,7 +3,7 @@ name: Update README with Solved Problems
 on:
   push:
     paths:
-      - "CODING_PRACTICE/**"   # run only when files inside CODING_PRACTICE/ change
+      - "coding_practice/**"    # run only when files inside CODING_PRACTICE/ change
   workflow_dispatch:           # allow manual trigger
 
 permissions:
