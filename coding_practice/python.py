@@ -1,10 +1,12 @@
 import os
 
-README_FILE = "README.md"
+# Always work from repo root
+REPO_DIR = os.path.dirname(os.path.abspath(__file__))
+README_FILE = os.path.join(REPO_DIR, "README.md")
+PROBLEMS_DIR = os.path.join(REPO_DIR, "coding_practice")
+
 START_TAG = "<!-- AUTO-GENERATED-LIST:START -->"
 END_TAG = "<!-- AUTO-GENERATED-LIST:END -->"
-PROBLEMS_DIR = "coding_practice"   # lowercase since your folder is lowercase
-GITHUB_REPO = "https://github.com/anwe-sha-hub/coding_practice/blob/main"  # adjust if your default branch is not 'main'
 
 
 def get_solved_problems():
