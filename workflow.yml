@@ -3,7 +3,7 @@ name: Update README with Solved Problems
 on:
   push:
     paths:
-      - "problems/**"
+      - "CODING_PRACTICE/**"
   workflow_dispatch: # allow manual trigger
 
 jobs:
