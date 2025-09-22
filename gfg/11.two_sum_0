@@ -24,7 +24,7 @@ class Solution {
             else
             end--;
         }
-    
+     sort(ans.begin(), ans.end());
     return ans;
     }
 };
