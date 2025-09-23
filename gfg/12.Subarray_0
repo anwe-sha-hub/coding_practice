@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    // Complete this function
+    // Function to check whether there is a subarray present with 0-sum or not.
+    bool subArrayExists(vector<int>& arr) {
+        // Your code here
+       unordered_set<int> seen;   // to store prefix sums
+        int prefixSum = 0;
+
+        for (int i = 0; i < arr.size(); i++) {
+            prefixSum += arr[i];
+
+            // if prefix sum is 0 or seen before, subarray with sum 0 exists
+            if (prefixSum == 0 || seen.count(prefixSum)) {
+                return true;
+            }
+
+            seen.insert(prefixSum);
+        }
+
+        return false;
+    }
+};
