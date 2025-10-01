@@ -1,0 +1,58 @@
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+    Node* bottom;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+        bottom = NULL;
+    }
+};
+*/
+
+class Solution {
+    private:
+    Node * merge(Node * down,Node * right){
+       if(down==NULL)return right;
+	if(right==NULL)return down;
+	Node * ans= new Node (-1);
+	Node * temp=ans;
+	while(down!=NULL && right !=NULL){
+	    if(down->data<right->data){
+	        temp->bottom=down;
+	       down =down->bottom;
+	    }
+	    else{
+	         temp->bottom=right;
+	       right =right->bottom;
+	    }
+	    temp=temp->bottom;
+	    temp->next=NULL;
+	}
+	while(down!=NULL){
+	temp->bottom=down;
+	down=down->bottom;
+	 temp = temp->bottom;
+        temp->next = NULL;
+	}
+	while(right!=NULL){
+		temp->bottom=right;
+	right=right->bottom;  
+	temp = temp->bottom;
+        temp->next = NULL;
+	}
+	ans=ans->bottom;
+	return ans;
+}
+  public:
+    Node *flatten(Node *root) {
+        if (root == NULL || root->next == NULL) return root;
+	Node * right =flatten(root->next);
+	root->next=NULL;
+	Node * ans=merge(root,right);
+	return ans;
+    }
+};
