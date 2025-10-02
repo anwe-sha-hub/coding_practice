@@ -1,0 +1,17 @@
+// User function Template for C++
+
+class Solution {
+  public:
+    Node *moveToFront(Node *head) {
+        // code here
+        if(!head || !head->next)return head;
+        Node * curr=head;
+        while(curr->next->next!=NULL)curr=curr->next;
+        
+        Node * last=curr->next;
+        curr->next=NULL;
+        last->next=head;
+        head=last;
+        return head;
+    }
+};
