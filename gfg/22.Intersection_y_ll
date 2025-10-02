@@ -1,0 +1,29 @@
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node* intersectPoint(Node* head1, Node* head2) {
+        //  Code Here
+    if(head1==NULL || head2==NULL)return NULL;
+        Node * pA=head1;
+        Node * pB=head2;
+        while(pA!=pB){
+            if(pA!=NULL)pA=pA->next;
+            else pA=head2;
+            if(pB!=NULL)pB=pB->next;
+            else pB=head1;
+        }
+        return pA;
+    }
+};
