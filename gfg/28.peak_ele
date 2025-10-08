@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    int peakElement(vector<int> &arr) {
+        // code here
+       int low = 0, high = arr.size() - 1;
+
+    while (low < high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] < arr[mid + 1])
+            low = mid + 1;   // peak is on the right
+        else
+            high = mid;      // peak is on the left (or at mid)
+    }
+
+    return low;  // or high (same)
+    }
+};
