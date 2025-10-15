@@ -1,0 +1,19 @@
+class Solution {
+  public:
+    int maxWater(vector<int> &arr) {
+          int st=0;
+        int end=arr.size()-1;
+        int ans=0;
+        while(st<end){
+            int width= end-st;
+           int  height=min(arr[st],arr[end]);
+           int area=width*height;
+           ans=max(area,ans);
+           if(arr[st]<arr[end])
+           st++;
+           else
+           end--;
+                  }
+                  return ans;
+    }
+};
