@@ -1,0 +1,30 @@
+/*
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+  void inorder(Node* root, vector<int>&result){
+        
+        if(root==NULL)return;
+        inorder(root->left,result);
+        result.push_back(root->data);
+        inorder(root->right,result);
+  }
+    vector<int> inOrder(Node* root) {
+       vector<int>result;
+      inorder(root,result);
+      return result;
+    }
+};
