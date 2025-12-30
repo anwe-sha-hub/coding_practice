@@ -1,0 +1,30 @@
+/*
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node* LCA(Node* root, Node* n1, Node* n2) {
+        // code here
+        if(root==NULL)return NULL;
+        if(root==n1 || root==n2)return root;
+        Node*leftans=LCA(root->left,n1,n2);
+        Node*rightans=LCA(root->right,n1,n2);
+        
+        if(leftans!=NULL && rightans!=NULL)return root;
+        else if(leftans!=NULL && rightans==NULL)return leftans;
+        else if(leftans==NULL && rightans!=NULL)return rightans;
+        else return NULL;
+    }
+};
